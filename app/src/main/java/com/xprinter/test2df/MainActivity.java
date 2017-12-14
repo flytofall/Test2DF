@@ -29,6 +29,7 @@ import net.posprinter.service.PosprinterService;
 import net.posprinter.utils.BitmapToByteData;
 import net.posprinter.utils.DataForSendToPrinterPos58;
 import net.posprinter.utils.PosPrinterDev;
+import net.posprinter.utils.RoundQueue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -95,6 +96,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
         //set the listener
         setlistener();
+//        readbuff();
     }
 
     public void setlistener(){
@@ -192,6 +194,12 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         }
     }
 
+    private void readbuff(){
+        RoundQueue<byte[]> queue=new RoundQueue<byte[]>(500);
+        queue=binder.readBuffer();
+        showSnackbar(" "+queue.getLast());
+
+    }
 
     private TextView tv_usb;
     private List<String> usbList,usblist;

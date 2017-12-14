@@ -115,7 +115,8 @@ public class printActivity extends AppCompatActivity implements View.OnClickList
                 printPIC();
                 break;
             case R.id.buttonprint:
-                sendData();
+//                sendData();
+                check();
                 break;
             case R.id.decrease:
                 if (distence!=0){
@@ -136,11 +137,31 @@ public class printActivity extends AppCompatActivity implements View.OnClickList
         }
 
     }
+    /*
+    check
+     */
 
+    private void check(){
+        MainActivity.binder.checkLinkedState(new UiExecute() {
+            @Override
+            public void onsucess() {
+                sendData();
+                Log.e("CHECK"," ok");
+            }
+
+            @Override
+            public void onfailed() {
+                showSnackbar("failed");
+                Log.e("CHECK"," FAILED");
+
+            }
+        });
+    }
     /*
     send data to the printer
      */
     private void sendData(){
+
         final Bitmap printBmp;
         if (changebmp){
             printBmp=b2;
@@ -152,12 +173,14 @@ public class printActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onsucess() {
                 showSnackbar("send data ok ");
+                Log.e("Send"," ok");
 
             }
 
             @Override
             public void onfailed() {
                 showSnackbar("send data failed");
+                Log.e("Send"," FAILED");
 
             }
         }, new ProcessData() {
