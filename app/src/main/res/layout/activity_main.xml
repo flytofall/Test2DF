@@ -12,28 +12,46 @@
         android:orientation="vertical"
         android:layout_height="match_parent"
         >
-    <LinearLayout
-        android:id="@+id/llport"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:background="@drawable/connetpor_selector"
-        android:orientation="horizontal"
-        >
+        <LinearLayout
+            android:id="@+id/llport"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/connetpor_selector"
+            android:orientation="horizontal"
+            >
 
-        <EditText
-            android:layout_marginLeft="10dp"
-            android:id="@+id/showET"
-            android:layout_width="0dp"
-            android:layout_weight="2"
-            android:layout_height="match_parent"
-            android:ems="10"
-            android:hint="@string/hint" />
+            <Spinner
+                android:id="@+id/connectport"
+                android:layout_width="60dp"
 
-    </LinearLayout>
+                android:layout_marginLeft="3dp"
+                android:layout_height="match_parent"
+                android:entries="@array/port"
+                android:background="@drawable/spiner_selector"
+                android:spinnerMode="dropdown"
+                />
+            <Button
+                android:id="@+id/buttonSB"
+                android:layout_marginLeft="10dp"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:visibility="visible"
+                style="@style/ButtonText"
+                android:text="@string/sb" />
+            <EditText
+                android:layout_marginLeft="10dp"
+                android:id="@+id/showET"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="match_parent"
+
+                android:ems="10"
+                android:hint="@string/hint" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

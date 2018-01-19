@@ -26,7 +26,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile files('libs/posprinterconnectandsendsdk.jar')
-
     //butterknife
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
@@ -36,4 +35,5 @@ dependencies {
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'com.github.zcweng:switch-button:0.0.3@aar'
     compile 'com.zxy.android:tiny:0.0.6'
+    compile files('libs/ZQPrinter.jar')
 }
